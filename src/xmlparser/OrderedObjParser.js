@@ -283,7 +283,6 @@ function buildAttributesMap(attrStr, jPath, tagName, force = false) {
   }
 }
 const parseXml = function (xmlData) {
-  xmlData = xmlData.replace(/\r\n?/g, "\n"); //TODO: remove this line
   const xmlObj = new xmlNode('!xml');
   let currentNode = xmlObj;
   let textData = "";
@@ -681,9 +680,9 @@ function isItStopNode() {
 
 /**
  * Returns the tag Expression and where it is ending handling single-double quotes situation
- * @param {string} xmlData 
+ * @param {string} xmlData
  * @param {number} i starting index
- * @returns 
+ * @returns
  */
 function tagExpWithClosingIndex(xmlData, i, closingChar = ">") {
   //TODO: ignore boolean attributes in tag expression
@@ -768,9 +767,9 @@ function readTagExp(xmlData, i, removeNSPrefix, closingChar = ">") {
 }
 /**
  * find paired tag for a stop node
- * @param {string} xmlData 
- * @param {string} tagName 
- * @param {number} i 
+ * @param {string} xmlData
+ * @param {string} tagName
+ * @param {number} i
  */
 function readStopNodeData(xmlData, tagName, i) {
   const startIndex = i;
